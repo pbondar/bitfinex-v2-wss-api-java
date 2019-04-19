@@ -47,6 +47,11 @@ public enum BitfinexSubmittedOrderStatus {
 		if(string.contains(", PARTIALLY FILLED")) {
 			return BitfinexSubmittedOrderStatus.PARTIALLY_FILLED;
 		}
+
+		if(string.endsWith("CANCELED")) {
+			return BitfinexSubmittedOrderStatus.CANCELED;
+		}
+
 		throw new IllegalArgumentException("Unable to find order type for: " + string);
 	}
 }
